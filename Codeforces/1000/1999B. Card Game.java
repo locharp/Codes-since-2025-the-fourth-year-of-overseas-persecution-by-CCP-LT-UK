@@ -15,6 +15,8 @@ public class Solution
     {
         Scanner read = new Scanner( System.in );
         int t = read.nextInt();
+        int[] suneet = new int[2];
+        int[] slavic = new int[2];
 
 
         for
@@ -28,9 +30,8 @@ public class Solution
             suneet[1] = read.nextInt();
             slavic[0] = read.nextInt();
             slavic[1] = read.nextInt();
-            Arrays.sort( sunnet );
+            Arrays.sort( suneet );
             Arrays.sort( slavic );
-            int ans = 0;
             
             if
             (
@@ -38,22 +39,36 @@ public class Solution
                 ||
                 (
                     suneet[0] == slavic[1]
+                    &&
+                    (
+                        suneet[0] > slavic[0]
+                        || suneet[1] > slavic[1]
+                    )
+                )
+            )
+            {
+                System.out.println( 4 );
+            }
+            else if
+            (
+                (
+                    suneet[0] > slavic[0]
+                    && suneet[1] >= slavic[1]
+                )
+                ||
+                (
+                    suneet[0] == slavic[0]
                     && suneet[1] > slavic[1]
                 )
             )
             {
-                ans = 4;
+                System.out.println( 2 );
             }
-            else if
-            (
-            suneet[0] > slavic[0]
-            && suneet[1] >= slavic[1]
-            )
+            else
             {
-                ans = 2;
+                System.out.println( 0 );
             }
             
-            System.out.println( ans );   
         }
 
 
