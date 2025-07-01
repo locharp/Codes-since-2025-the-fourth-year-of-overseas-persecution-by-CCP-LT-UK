@@ -8,13 +8,20 @@ class Codechef
 
     public static
     void
-    main(String[] args)
+    main(
+        String[] args
+    )
     {
-        Scanner read = new Scanner(System.in);
+        Scanner read = new Scanner( System.in );
         int T = read.nextInt();
 
 
-        for (int h = 0; h < T; h++)
+        for
+        (
+            int h = 0
+            ; h < T
+            ; h++
+        )
         {
             int N = read.nextInt();
             int X = read.nextInt();
@@ -33,11 +40,11 @@ class Codechef
                 X + 1 + ( N % 2 ) > N
             )
             {
-                System.out.println("NO");
+                System.out.println( "NO" );
             }
             else
             {
-                System.out.println("YES");
+                System.out.println( "YES" );
             }
             
         }
