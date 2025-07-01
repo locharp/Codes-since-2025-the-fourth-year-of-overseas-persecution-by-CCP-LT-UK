@@ -1,0 +1,68 @@
+import java.util.*;
+ 
+ 
+ 
+ 
+public class Solution
+{
+ 
+    public static
+    void
+    main
+    (
+        String[] args
+    )
+    {
+        Scanner read = new Scanner( System.in );
+        int t = read.nextInt();
+ 
+ 
+        for
+        (
+            int h = 0
+            ; h < t
+            ; h ++
+        )
+        {
+            int n = read.nextInt();
+            int s = read.nextInt();
+            int m = read.nextInt();
+            int c = 0;
+            String ans = "NO";
+            
+            
+            for
+            (
+                int i = 1
+                ; i <= n
+                ; i ++
+            )
+            {
+                
+                if
+                (
+                    read.nextInt() - c >= s
+                )
+                {
+                    ans = "YES";
+                }
+                
+                c= read.nextInt();
+            }
+            
+            
+            if
+            (
+                m - c >= s
+            )
+            {
+                ans = "YES";
+            }
+            
+            System.out.println( ans );
+        }
+ 
+ 
+    }
+ 
+}
