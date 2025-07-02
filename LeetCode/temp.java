@@ -77,7 +77,7 @@ class Solution
             return arr[i] - k + 1;
         }
 
-        cache[i].put( k, 0 );
+        int res = 0;
         int n = Math.min( list.get( i ), ( arr[i] - k ) + 1 );
 
 
@@ -88,19 +88,21 @@ class Solution
             ; j ++
         )
         {
-            cache[i].put( k, ( cache[i].get( k ) + solve( list, arr, cache, i + 1, k - j ) ) % 1000000007 );
+            res = ( res + solve( list, arr, cache, i + 1, k - j ) ) % 1000000007;
         }
 
 
-        return cache[i].get( k );
+        cache[i].put( k, res );
+
+
+        return res;
     }
 
 
 
 
 
-    ArrayList
-    < Integer >
+    ArrayList < Integer >
     getList
     (
         String word
