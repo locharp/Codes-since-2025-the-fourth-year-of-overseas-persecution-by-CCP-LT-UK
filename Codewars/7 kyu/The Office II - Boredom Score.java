@@ -34,7 +34,6 @@ public class TheOffice
         Person[] staff
     )
     {
-        
         int score = 0;
         
         
@@ -46,6 +45,7 @@ public class TheOffice
         {
             score += map.get( p.department );
         }
+        
         
         if
         (
