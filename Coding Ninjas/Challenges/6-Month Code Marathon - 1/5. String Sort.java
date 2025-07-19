@@ -14,8 +14,6 @@ public class Solution
 	)
 	{
 		char[] arr = s.toCharArray();
-
-
 		Arrays.sort( arr );
 		StringBuilder ans = new StringBuilder();
 
