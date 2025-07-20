@@ -8,7 +8,7 @@ class Solution
         List < List < String > > paths
     )
     {
-        Trie t = new Trie();
+        Trie trie = new Trie();
         HashMap < String, Integer > map = new HashMap <> ();
         ArrayList< List < String > > remains = new ArrayList <> ();
         ArrayList < String > folder = new ArrayList <> ();
@@ -20,12 +20,21 @@ class Solution
             : paths
         )
         {
-            t.add( path );
+            trie.add( path );
         }
 
 
-        t.serialise( map );
-        t.filter( map, remains, folder );
+        for
+        (
+            Trie t
+            : trie.subs.values()
+        )
+        {
+            t.serialise( map );
+        }
+
+
+        trie.filter( map, remains, folder );
 
 
         return remains;
@@ -107,7 +116,7 @@ class Trie
             return "";
         }
 
-        StringBuilder s = new StringBuilder( "(" );
+        StringBuilder s = new StringBuilder();
         ArrayList < String > keySet = new ArrayList( subs.keySet() );
         Collections.sort( keySet );
 
@@ -119,10 +128,10 @@ class Trie
         )
         {
             s.append( sub + subs.get( sub ).serialise( map ) );
+            s.append( ',' );
         }
 
 
-        s.append( ')' );
         serial = s.toString();
         map.put( serial, map.getOrDefault( serial, 0 ) + 1 );
 
@@ -150,7 +159,7 @@ class Trie
             : subs.entrySet()
         )
         {
-            
+
             if
             (
                 e.getValue().serial != null
