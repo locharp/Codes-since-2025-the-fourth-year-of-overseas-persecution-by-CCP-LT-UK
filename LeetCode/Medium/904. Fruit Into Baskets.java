@@ -30,6 +30,7 @@ class Solution
                 && fruits[k] != f2
             )
             {
+                ans = Math.max( ans, k - i );
                 f1 = fruits[j];
                 f2 = fruits[k];
                 i = j;
@@ -49,11 +50,10 @@ class Solution
             }
 
 
-            ans = Math.max( ans, k - i );
         }
 
 
-        return ans;
+        return Math.max( ans, k - i );
     }
 
 }
