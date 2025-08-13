@@ -10,15 +10,15 @@ public class Solution
     int
     groupAllOneTogether
     (
-        int arr[]
-        , int n
+        int arr[],
+        int n
     )
     {
+        int c = 0;
         int i = 0;
         int j = 0;
+        int m = 0;
         int o = 0;
-        int ans = 0;
-
 
 
         for
@@ -31,17 +31,33 @@ public class Solution
         }
 
 
+        if
+        (
+            o < 1
+        )
+        {
+            return -1;
+        }
+        else if
+        (
+            o == n
+        )
+        {
+            return 0;
+        }
+
+        
         while
         (
             j < o
         )
         {
-            ans += arr[j];
+            c += arr[j];
             j ++;
         }
 
 
-        o = ans;
+        m = c;
 
 
         while
@@ -49,15 +65,15 @@ public class Solution
             j < n
         )
         {
-            o -= arr[i];
-            o += arr[j];
+            c -= arr[i];
+            c += arr[j];
             i ++;
             j ++;
-            ans = Math.max( ans, o );
+            m = Math.max( m, c );
         }
 
 
-        return ans;
+        return o - m;
     }
 
 }
