@@ -15,9 +15,12 @@ class Codechef
         int x = sc.nextInt();
         int y = sc.nextInt();
 
-        if (x >= 2 * y) {
+        if (x >= 2 * y)
+        {
             System.out.println("Yes");
-        } else {
+        }
+        else
+        {
             System.out.println("No");
         }
 

@@ -14,9 +14,12 @@ class Codechef
         int a = sc.nextInt();
         int b = sc.nextInt();
 
-        if (a + b + (a * b) == 111) {
+        if (a + b + (a * b) == 111)
+        {
             System.out.println("Yes");
-        } else {
+        }
+        else
+        {
             System.out.println("No");
         }
 

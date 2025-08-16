@@ -15,9 +15,12 @@ class Codechef
         int x = sc.nextInt();
         int y = sc.nextInt();
 
-        if (y > x) {
+        if (y > x)
+        {
             System.out.println("YES");
-        } else {
+        }
+        else
+        {
             System.out.println("NO");
         }
 
