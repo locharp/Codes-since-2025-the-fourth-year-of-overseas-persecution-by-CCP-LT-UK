@@ -10,8 +10,6 @@ class Solution
     )
     {
         int ans = 0;
-        int k = 0;
-        int o = 0;
         int m = mat.length;
         int n = mat[0].length;
         int[] arr = new int[n];
@@ -40,19 +38,19 @@ class Solution
                 )
                 {
                     arr[j] ++;
-                    k = j;
-                    o = arr[j];
 
 
-                    while
+                    for
                     (
-                        k >= 0
-                        && arr[k] > 0
+                        int k = j
+                            , o = arr[j]
+                        ; k >= 0
+                            && arr[k] > 0
+                        ; k --
                     )
                     {
                         o = Math.min( o, arr[k] );
                         ans += o;
-                        k --;
                     }
                     
 
