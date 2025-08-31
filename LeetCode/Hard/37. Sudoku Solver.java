@@ -122,7 +122,7 @@ class Solution
 
         for
         (
-            char i = 1
+            int i = 1
             ; i <= 9
             ; i ++ 
         )
@@ -137,28 +137,25 @@ class Solution
             {
                 continue;
             }
-            else
+
+            cache[0][r][i] = true;
+            cache[1][c][i] = true;
+            cache[2][idx[r][c]][i] = true;
+            
+            if
+            (
+                solve( grid, idx, cache, r, c + 1 )
+            )
             {
-                cache[0][r][i] = true;
-                cache[1][c][i] = true;
-                cache[2][idx[r][c]][i] = true;
-                
-                if
-                (
-                    solve( grid, idx, cache, r, c + 1 )
-                )
-                {
-                    grid[r][c] = i;
+                grid[r][c] = i;
 
 
-                    return true;
-                }
-
-                cache[0][r][i] = false;
-                cache[1][c][i] = false;
-                cache[2][idx[r][c]][i] = false;
+                return true;
             }
 
+            cache[0][r][i] = false;
+            cache[1][c][i] = false;
+            cache[2][idx[r][c]][i] = false;
         }
 
 
