@@ -63,7 +63,10 @@ public class Solution
             : list.get( source )
         )
         {
-            pq.offer( new SimpleImmutableEntry <> ( entry.getKey(), entry.getValue() ) );
+            pq.offer
+            (
+                new SimpleImmutableEntry <> ( entry.getKey(), entry.getValue() )
+            );
         }
 
 
