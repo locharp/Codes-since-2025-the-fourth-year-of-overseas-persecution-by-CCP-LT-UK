@@ -63,7 +63,6 @@ public class Solution
             }
             else
             {
-
                 return
                 isParentSum( root.right )
                 && root.data == root.right.data;
