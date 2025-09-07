@@ -1,3 +1,4 @@
+// 0 ms, 42 MB
 class Solution
 {
 
