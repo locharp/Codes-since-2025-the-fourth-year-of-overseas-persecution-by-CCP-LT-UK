@@ -1,5 +1,5 @@
-import java.util.* ;
-import java.io.*; 
+import java.util.*;
+
 /*
     Definition of Node class for reference  
     class Node {
@@ -37,14 +37,15 @@ public class Solution
         Node head
     )
     {
-
+        Node[] ans = new Node[] { head, head };
+        
         if
         (
             head == null
             || head.next == null
         )
         {
-            return new Node[] { head, head };
+            return ans;
         }
 
         Node node1 = new Node( 0 );
@@ -52,13 +53,14 @@ public class Solution
         Node curr = head.next;
         Node curr1 = node1;
         Node curr2 = node2;
-        
+
+
         while
         (
             curr != null
         )
         {
-            
+
             if
             (
                 curr.value < head.value
@@ -92,7 +94,6 @@ public class Solution
         curr2.next = null;
         node1 = node1.next;
         node2 = node2.next;
-        Node[] ans = new Node[] { head, head };
 
         if
         (
@@ -121,7 +122,7 @@ public class Solution
         }
 
 
-        return ans;
+        return ans; 
     }
 
 }
