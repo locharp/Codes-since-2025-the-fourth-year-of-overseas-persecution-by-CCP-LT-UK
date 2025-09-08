@@ -1,4 +1,3 @@
-// Time Limit Exceeded
 import java.util.*;
 
 /****************************************************************
@@ -7,14 +6,14 @@ import java.util.*;
 
         class Pair
         {
-            int weight;
-            int value;
-            Pair(int weight, int value)
-            {
-                this.weight = weight;
-                this.value = value;
-            }
-            
+        	int weight;
+	        int value;
+	        Pair(int weight, int value)
+	        {
+		        this.weight = weight;
+		        this.value = value;
+	        }
+	        
         }
         
 *****************************************************************/
@@ -23,56 +22,70 @@ public class Solution
 {
 
     public static
-    double
-    maximumValue
-    (
-        Pair[] items
-        , int n
-        , int w
-    )
-    {
-        HashMap < Double, Integer > map = new HashMap <> ();
-        double ans = 0;
+	double
+	maximumValue
+	(
+		Pair[] items
+		, int n
+		, int w
+	)
+	{
+		Arrays.sort( items, new ItemComparator() );
+		double ans = 0;
 
 
-        for
-        (
-            Pair item
-            : items
-        )
-        {
-            double u = ( ( double ) ( item.value ) ) / item.weight;
-            map.put( u, map.getOrDefault( u, 0 ) + item.weight );
-        }
+		for
+		(
+			Pair item
+			: items
+		)
+		{
+			
+			if
+			(
+				item.weight > w
+			)
+			{                
+				ans += ( ( ( double ) ( item.value ) ) / item.weight ) * w;
+
+				break;
+			}
+			else
+			{
+				ans += item.value;
+				w -= item.weight;
+			}
+
+		}
 
 
-        ArrayList < Double > list = new ArrayList <> ( map.keySet() );
-        list.sort( Comparator.reverseOrder() );
-
-
-        for
-        (
-            Double i
-            : list
-        )
-        {
-            int u = Math.min( w, map.get( i ) );
-            w -= u;
-            ans += i * u;
-
-
-            if
-            (
-                w < 1
-            )
-            {
-                break;
-            }
-
-        }
-
-
-        return ans;
+		return ans;
     }
 
+}
+
+
+
+
+
+
+class ItemComparator
+implements Comparator < Pair >
+{
+
+	@Override
+	public
+	int
+	compare
+	(
+		Pair item1
+		, Pair item2
+	)
+	{
+		double value1 = ( ( double ) ( item1.value ) ) / item1.weight;
+		double value2 = ( ( double ) ( item2.value ) ) / item2.weight;
+
+		
+		return Double.compare( value2, value1 );
+	}
 }
