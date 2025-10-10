@@ -1,4 +1,4 @@
-zclass Solution
+class Solution
 {
     
     public
