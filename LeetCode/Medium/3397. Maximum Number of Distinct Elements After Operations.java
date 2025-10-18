@@ -24,23 +24,18 @@ class Solution
             
             if
             (
-                prev >= curr
+                prev < curr
             )
             {
-                
-                if
-                (
-                    prev < num + k
-                )
-                {
-                    prev ++;
-                    ans ++;
-                }
-                
-            }
-            else
-            {
                 prev = curr;
+                ans ++;
+            } 
+            else if
+            (
+                prev < num + k
+            )
+            {
+                prev ++;
                 ans ++;
             }
             
