@@ -6,7 +6,8 @@ def autoSuggestion(n: int, S: List[str], l: int, P: str) -> List[List[str]]:
     trie = Trie()
     trie.add_all_words( S )
     ans = []
-
+    
+    
     for i in range( len( P ) ):
         trie = trie.children[P[i]]
         suggestions = []
