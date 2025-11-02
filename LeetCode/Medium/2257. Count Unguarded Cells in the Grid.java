@@ -16,7 +16,8 @@ class Solution
     )
     {
         grid = new char[m][n];
-        int ans = 0;     
+        int ans = 0;
+        
         
         for
         (
@@ -57,7 +58,7 @@ class Solution
                 
                 if
                 (
-                    Character.valueOf( c ) == '\0'
+                    c == '\0'
                 )
                 {
                     ans ++;
