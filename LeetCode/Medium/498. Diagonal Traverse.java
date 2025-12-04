@@ -147,3 +147,134 @@ class Solution
     }
 
 }
+
+
+
+
+
+
+// 1 ms, 47.1 MBs
+class Solution
+{
+    
+    public
+    int []
+    findDiagonalOrder
+    (
+        int [][] mat
+    )
+    {
+        int [] ans = new int[mat.length * mat[0].length];
+        
+        up( mat, ans, 0, 0, 0 );
+        
+        
+        return ans;
+    }
+    
+    
+    
+    
+    void
+    up
+    (
+        int [][] mat
+        , int [] ans
+        , int i
+        , int j
+        , int k
+    )
+    {
+        
+        if
+        (
+            k == ans.length
+        )
+        {
+            return;
+        }
+        
+        
+        while
+        (
+            i >= 0
+            && j < mat[0].length
+        )
+        {
+            ans[k] = mat[i][j];
+            
+            i --;
+            j ++;
+            k ++;
+        }
+        
+        
+        if
+        (
+            j == mat[0].length
+        )
+        {
+            i += 2;
+            j --;
+        }
+        else
+        {
+            i ++;
+        }
+        
+        down( mat, ans, i, j, k );
+    }
+    
+    
+    
+    
+    void
+    down
+    (
+        int [][] mat
+        , int [] ans
+        , int i
+        , int j
+        , int k
+    )
+    {
+        
+        if
+        (
+            k == ans.length
+        )
+        {
+            return;
+        }
+        
+        
+        while
+        (
+            i < mat.length
+            && j >= 0
+        )
+        {
+            ans[k] = mat[i][j];
+            
+            i ++;
+            j --;
+            k ++;
+        }
+        
+        if
+        (
+            i == mat.length
+        )
+        {
+            i --;
+            j += 2;
+        }
+        else
+        {
+            j ++;
+        }
+        
+        up( mat, ans, i, j, k );
+    }
+    
+}
