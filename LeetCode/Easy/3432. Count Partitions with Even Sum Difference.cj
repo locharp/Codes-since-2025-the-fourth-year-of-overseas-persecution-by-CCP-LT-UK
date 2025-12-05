@@ -9,7 +9,7 @@ class Solution
     : Int64
     {
         let iterator = nums.iterator()
-        let sum: Int64 = iterator.fold( 0, { x, y => x + y } )
+        let sum = iterator.fold( 0, { x, y => x + y } )
         
         if
         (
