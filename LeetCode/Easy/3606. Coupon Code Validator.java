@@ -167,4 +167,92 @@ class Solution
         return true;
     }
     
-}©leetcode
+}
+
+
+
+
+// Solution 2
+import java.util.regex.*;
+
+
+
+
+class Solution
+{
+    private static final Pattern pattern
+    = Pattern.compile( "\\w+" );
+    
+    
+    
+    
+    public
+    List < String >
+    validateCoupons
+    (
+        String [] code
+        , String [] businessLine
+        , boolean [] isActive
+    )
+    {
+        int n = code.length;
+        HashMap < String, List < String > > hashMap
+        = new HashMap <> ( Map.ofEntries
+        (
+           Map.entry( "electronics", new ArrayList <> () )
+           , Map.entry( "grocery", new ArrayList <> () )
+           , Map.entry( "pharmacy", new ArrayList <> () )
+           , Map.entry( "restaurant", new ArrayList <> () )
+        ) );
+        
+        
+        for
+        (
+            int i = 0
+            ; i < n
+            ; i ++
+        )
+        {
+            
+            if
+            (
+                isActive[i]
+                && hashMap.containsKey( businessLine[i] )
+                && pattern.matcher( code[i] ).matches( )
+            )
+            {
+                hashMap.get( businessLine[i] ).add( code[i] );
+            }
+            
+            
+        }
+        
+        
+        for
+        (
+            var codes
+            : hashMap.values()
+        )
+        {
+            
+            if
+            (
+                !codes.isEmpty()
+            )
+            {
+                codes.sort( Comparator.naturalOrder() );
+            }
+            
+        }
+        
+                
+        List < String > ans = hashMap.get( "electronics" );
+        ans.addAll( hashMap.get( "grocery" ) );
+        ans.addAll( hashMap.get( "pharmacy" ) );
+        ans.addAll( hashMap.get( "restaurant" ) );
+        
+        
+        return ans;
+    }
+    
+}
