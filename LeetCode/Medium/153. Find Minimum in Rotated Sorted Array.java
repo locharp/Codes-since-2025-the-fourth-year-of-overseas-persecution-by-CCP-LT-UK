@@ -3,134 +3,53 @@ class Solution
 
     public
     int
-    numberOfWays
+    findMin
     (
-        String corridor
+        int [] nums
     )
     {
-        final long MOD = 1000000007;
-        char [] arr = corridor.toCharArray();
-        int n = arr.length;
-        long s = 0;
-        long p = 0;
         int i = 0;
-
-
-        while
-        (
-            i < n
-            && s < 2
-        )
-        {
-
-            if
-            (
-                arr[i] == 'S'
-            )
-            {
-                s ++;
-            }
-
-            i ++;
-        }
-
+        int j = nums.length - 1;
 
         if
         (
-            s < 2
+            nums[0] < nums[j]
         )
         {
-            return 0;
+            return nums[0];
         }
 
 
         while
         (
-            i < n
-            && arr[i] == 'P'
+            i < j
         )
         {
-            p ++;
-
-            i ++;
-        }
-
-
-        if
-        (
-            i == n
-        )
-        {
-            return 1;
-        }
-
-        long ans = p + 1;
-        s = 0;
-        p = 0;
-
-
-        while
-        (
-            i < n
-        )
-        {
-
-
-            while
-            (
-                i < n
-                && s < 2
-            )
-            {
-
-                if
-                (
-                    arr[i] == 'S'
-                )
-                {
-                    s ++;
-                }
-                
-                i ++;
-            }
-
+            int k = ( i + j ) / 2;
 
             if
             (
-                s == 1
+                nums[k] > nums[k + 1]
             )
             {
-                return 0;
+                return nums[k + 1];
             }
-
-
-            while
+            else if
             (
-                i < n
-                && arr[i] == 'P'
+                nums[k] < nums[0]
             )
             {
-                p ++;
-
-                i ++;
+                j = k;
             }
-
-
-            if
-            (
-                i == n
-            )
+            else
             {
-                break;
+                i = k;
             }
 
-            ans = ( ans * ( p + 1 ) ) % MOD;
-            s = 0;
-            p = 0;
         }
 
 
-        return ( int ) ( ans );
+        return nums[i];
     }
 
 }
