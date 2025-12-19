@@ -1,0 +1,21 @@
+WITH sorted AS
+(
+    SELECT customer_id
+        , order_date
+        , LAG ( order_date ) OVER
+        (
+            PARTITION BY customer_id
+            ORDER BY order_date
+        ) AS prev_date
+    FROM Orders
+)
+
+SELECT customer_id
+    , name
+    , MAX( JULIANDAY( order_date ) - JULIANDAY( prev_date ) ) AS max_gap_days
+FROM sorted
+JOIN Customers USING ( customer_id )
+WHERE prev_date IS NOT NULL
+GROUP BY customer_id
+ORDER BY max_gap_days DESCy
+    , name ASC
