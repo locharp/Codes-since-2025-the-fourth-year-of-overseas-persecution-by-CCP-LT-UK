@@ -18,11 +18,11 @@ class Solution
         (
             int i = 0
             ; i < k
-                && happiness[i] > i
+                && happiness[o - i] > i
             ; i ++
         )
         {
-            answer += happiness[o - i] - i
+            answer += happiness[o - i] - i;
         }
         
         
